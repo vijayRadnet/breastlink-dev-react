@@ -1,0 +1,19 @@
+.jumbotron {
+    position: relative;
+    height: 480px;
+}
+
+.jumbotron .jumbotext {
+    position: absolute;
+    z-index: 10;
+    color: white;
+    text-align:center;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.jumbotron img {
+    position: absolute;
+    max-height: 480px;
+    width: 100%;   
+}
