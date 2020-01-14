@@ -21,7 +21,7 @@ class Header extends React.Component {
                 <div style={{float:'left'}}><img className="logo" src={logo} /></div>
                 <div style={{float:'right', textAlign: "right", paddingTop: '20px'}}>
                     <button className="btn btn-info" onClick={this.handleClick}>Make an appointment</button>
-                    <p>Los Angeles, CA 73&#8457;</p>
+                    <p>Los Angeles, CA 73{String.fromCharCode(8457)}</p>
                 </div>
                 <div className="clearfix"></div>
             </header>

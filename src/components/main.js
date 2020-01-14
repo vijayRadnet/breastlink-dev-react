@@ -5,7 +5,7 @@ import Navigation from "../components/navigation.js";
 import oneFocus from "./images/one-focus.jpg";
 import research from "./images/research.jpg";
 import patientEducation from "./images/patient-education.jpg";
-import _ from "lodash";
+//import _ from "lodash"; doesn't import well
 
 class Main extends React.Component {
     constructor(props){
@@ -81,14 +81,14 @@ class Main extends React.Component {
                     this.cache[this.counter].classList.remove('active');
                     this.cache[this.jumboLength-1].classList.add('active');
                     this.counter = this.jumboLength-1;
-                    this.initCarousel()
+                    this.initCarousel();
                 }, 300);
                 throttle();
             }else{
                 let throttle = _.throttle(()=>{
                     this.cache[this.counter].classList.remove('active');
                     this.cache[--this.counter].classList.add('active');
-                    this.initCarousel()
+                    this.initCarousel();
                 }, 300);
                 throttle();
             }
@@ -98,7 +98,7 @@ class Main extends React.Component {
                 let throttle = _.throttle(()=>{
                     this.cache[this.jumboLength-1].classList.remove('active');
                     this.cache[this.counter].classList.add('active');
-                    this.initCarousel()
+                    this.initCarousel();
                 }, 300);
                 throttle();
             }else{
@@ -106,7 +106,7 @@ class Main extends React.Component {
                 let throttle = _.throttle(()=>{
                     this.cache[this.counter].classList.remove('active');
                     this.cache[++this.counter].classList.add('active');
-                    this.initCarousel()
+                    this.initCarousel();
                 }, 300);
                 throttle();
             }

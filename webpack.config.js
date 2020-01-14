@@ -5,7 +5,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(jpg|png)$/,
@@ -20,10 +20,24 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
-                use: "babel-loader"
-            }
-        ]
+                use: "babel-loader",
+            },
+            
+        ],
+        
+        
     },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              chunks: "initial",
+            },
+          },
+        },
+      },
     devServer: {
         stats: "errors-only",
         host: process.env.HOST,
@@ -35,5 +49,6 @@ module.exports = {
             title: "Breastlink Demo",
             template: "src/index.html"
         })
-    ]
+    ],
+    
 }
