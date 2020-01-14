@@ -1,4 +1,10 @@
 header {
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #76B0D9;
 }
+
+header img.logo {
+    max-width: 240px;
+}
+

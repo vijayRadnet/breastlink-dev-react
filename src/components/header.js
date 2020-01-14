@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./navigation";
 import "./header.css";
+import logo from "./images/breastlink-logo.png";
 import u from "../util/utility.js"
 
 class Header extends React.Component {
@@ -17,7 +18,7 @@ class Header extends React.Component {
     render(){
         return (
             <header>
-                Breastlink
+                <img className="logo" src={logo} />
                 <Navigation />
                 <div className="clearfix" style={{textAlign: "right"}}>
                     <button onClick={this.handleClick}>Make an appointment</button>

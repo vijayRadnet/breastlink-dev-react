@@ -5,6 +5,7 @@ import sydneyRae from "./images/sydney-rae.jpg";
 import oneFocus from "./images/one-focus.jpg";
 import research from "./images/research.jpg";
 import patientEducation from "./images/patient-education.jpg";
+import _ from "lodash";
 
 class Main extends React.Component {
     constructor(props){
@@ -26,33 +27,91 @@ class Main extends React.Component {
                 }
             ]
         }
+        this.counter = 0;
+        this.timer = null;
+        this.jumboLength = this.state.jumbos.length;
+        this.cache = null;
+        
+        this.initCarousel = this.initCarousel.bind(this);
+        this.changeCarousel = this.changeCarousel.bind(this);
+        this.stopCarousel = this.stopCarousel.bind(this);
        
     }
     componentDidMount(){
-       this.changeJumbo()
+       this.initCarousel()
+       this.cache = document.querySelectorAll('.jumbotron');
     }
-
-    changeJumbo(){
-        let i = 0;
-        let jumboLength = this.state.jumbos.length;
-        let cache = document.querySelectorAll('.jumbotron');
-      
-        setInterval(() => {
-            if(i==0){
-                ++i;
-                cache[0].classList.remove('active');
-                cache[i].classList.add('active')
+   
+    initCarousel(){
+        
+        this.timer = setInterval(() => {
+            if(this.counter==0){
+                ++this.counter;
+                this.cache[0].classList.remove('active');
+                this.cache[this.counter].classList.add('active')
             }
-            else if(i < jumboLength && i+1 < jumboLength){
-                ++i;
-                cache[i-1].classList.remove('active');
-                cache[i].classList.add('active');
+            else if(this.counter < this.jumboLength && this.counter+1 < this.jumboLength){
+                ++this.counter;
+                this.cache[this.counter-1].classList.remove('active');
+                this.cache[this.counter].classList.add('active');
             }else {
-                i = 0;
-                cache[jumboLength-1].classList.remove('active')
-                cache[i].classList.add('active') 
+                this.counter = 0;
+                this.cache[this.jumboLength-1].classList.remove('active')
+                this.cache[this.counter].classList.add('active') 
             }
-        }, 4000)
+        }, 4000);
+    }
+    stopCarousel(){
+        clearInterval(this.timer);
+    }
+    changeCarousel(target){
+       let id = target.getAttribute('data-jumbo-id')
+       id = parseInt(id.substr(id.indexOf('-'+1, id.length)));
+       this.stopCarousel();
+       if(target.id == "left"){
+           console.log(this.counter)
+            //if arrow left pushed we want to go back thru the array
+            //remove the current div, then go back 1 and make that active
+            //going thru this if i hit left at 0, i should go back -1 or to pos 2
+            //current is now 2, then i should hit again and it should go to 1
+            //then at 1 should go back to 0
+
+            if(this.counter == 0){
+                let throttle = _.throttle(()=>{
+                    this.cache[this.counter].classList.remove('active');
+                    this.cache[this.jumboLength-1].classList.add('active');
+                    this.counter = this.jumboLength-1;
+                    this.initCarousel()
+                }, 300);
+                throttle();
+            }else{
+                let throttle = _.throttle(()=>{
+                    this.cache[this.counter].classList.remove('active');
+                    this.cache[--this.counter].classList.add('active');
+                    this.initCarousel()
+                }, 300);
+                throttle();
+            }
+       }else{
+            if(this.counter >= this.jumboLength-1){
+                this.counter = 0;
+                let throttle = _.throttle(()=>{
+                    this.cache[this.jumboLength-1].classList.remove('active');
+                    this.cache[this.counter].classList.add('active');
+                    this.initCarousel()
+                }, 300);
+                throttle();
+            }else{
+                //case current div not out of bounds
+                let throttle = _.throttle(()=>{
+                    this.cache[this.counter].classList.remove('active');
+                    this.cache[++this.counter].classList.add('active');
+                    this.initCarousel()
+                }, 300);
+                throttle();
+            }
+        
+       }
     }
 
     render(){
@@ -62,7 +121,8 @@ class Main extends React.Component {
                 <Jumbotron key={idx} id={`jumbo-${idx}`} 
                     image={jumbo.image}    
                     jumbotext={jumbo.title} 
-                    classes={classes} />
+                    classes={classes}
+                    change={this.changeCarousel} />
             )
         })
     
