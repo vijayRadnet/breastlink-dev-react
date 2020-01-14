@@ -1,13 +1,19 @@
 import React from "react";
 import "./jumbotron.css";
-import sydneyRae from "./images/sydney-rae.jpg";
+
 
 export default function Jumbotron(props){
-    const {jumbotext} = props 
+    const {jumbotext, classes, id, image} = props 
+    let bgImage = {
+        backgroundImage: `url(${image})`
+    }
+    console.log(bgImage)
+
     return (
-        <section className="jumbotron">
+        <section id={id} className={`jumbotron ${classes ? classes : ''}`} 
+            style={bgImage}>
             <p className="jumbotext">{jumbotext}</p>
-            <img src={sydneyRae} />
+            <div className="jumbogradient"></div>
         </section>
     )
 }

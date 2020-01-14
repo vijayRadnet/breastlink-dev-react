@@ -1,4 +1,4 @@
-let showToggleOff = true;
+let showToggleOff = true; //state?
 
 const util = (selector) => {
     let el = document.querySelector(selector);
@@ -14,7 +14,6 @@ const util = (selector) => {
     }
 
     let toggle = () => {
-        console.log(showToggleOff)
         showToggleOff ? show() : hide();
     }
    

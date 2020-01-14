@@ -12,6 +12,16 @@
     display: block;
     clear: both;
 }
+.slider {
+    position:relative;
+    min-height: 480px;
+}
+
+.hidden { display: none; }
+.active { 
+    opacity: 1 !important;
+    display: block !important;
+}
 
 .overlay {
     display: none;

@@ -14,13 +14,13 @@ class App extends React.Component {
     }
 
     handleClick(){
-        
+
        // u(".overlay").toggle()
     }
 
     render(){
         return (
-            <div className="app" onClick={this.handleClick}>
+            <div className="app">
                 <Header/>
                 <Main />
                 <Footer/>
