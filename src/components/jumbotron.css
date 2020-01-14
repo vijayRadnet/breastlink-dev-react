@@ -7,9 +7,10 @@
     transition-property: opacity;
     transition-duration: 1.5s;
     transition-timing-function: ease-in-out;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
+    padding: 0;
 }
 
 .jumbotron .jumbotext {
@@ -17,6 +18,7 @@
     z-index: 10;
     color: white;
     text-align:center;
+    top: 100px;
     width: 100%;
     padding-top: 100px;
     text-shadow: 2px 2px 4px black;
@@ -25,9 +27,36 @@
 
 .jumbotron .jumbogradient {
     position: absolute;
-    height: 450px;
+    height: 100%;
     width: 100%;
     z-index: 9;
     background: linear-gradient(180deg,#2a5bad 0,#64aed6);
     opacity: 0.2;
+}
+
+.jumbotron .carousel-ui {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    color: white;
+}
+
+.jumbotron .carousel-ui.left {
+    left: 20px;
+}
+
+.jumbotron .carousel-ui.right {
+    right: 20px;
+}
+
+@media screen and (max-width: 720px){
+    .jumbotron {
+        background-size: cover;
+        background-position: 50% 0;
+
+    }
+    .jumbotron .jumbotext {
+        top: 0px;
+        font-size: 1.5em;
+    }
 }

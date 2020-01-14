@@ -17,10 +17,9 @@ export default function Jumbotron(props){
             style={bgImage}>
            
             <p className="jumbotext">{jumbotext}</p>
-            <div className="jumbogradient">
-            <button id={`left`} data-jumbo-id={id} onClick={handleClick}>{`<<`}</button>
-            <button id={`right`} data-jumbo-id={id} onClick={handleClick}>{`>>`}</button>
-            </div>
+            <div className="jumbogradient"></div>
+            <button className="btn carousel-ui left" id={`left`} data-jumbo-id={id} onClick={handleClick}>{`<`}</button>
+            <button className="btn carousel-ui right" id={`right`} data-jumbo-id={id} onClick={handleClick}>{`>`}</button>
         </section>
     )
 }

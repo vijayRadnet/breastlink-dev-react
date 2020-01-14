@@ -8,7 +8,11 @@ export default class Navigation extends React.Component {
             menu: [
                 'breast-centers',
                 'womens-imaging',
-                'patient-info'
+                'patient-info',
+                'about',
+                'doctors',
+                'services',
+                'blog'
             ]
         }
     }
@@ -20,7 +24,7 @@ export default class Navigation extends React.Component {
             </li>
         ));
         return (
-            <ul>
+            <ul className="navigation-wrap">
                 {list}
             </ul>
         )

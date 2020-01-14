@@ -12,6 +12,10 @@
     display: block;
     clear: both;
 }
+.clearfix p {
+    margin-bottom: 0;
+}
+
 .slider {
     position:relative;
     min-height: 480px;
@@ -26,12 +30,21 @@
 .overlay {
     display: none;
     position: absolute;
-    top: 100px;
-    height: 100%;
-    width: 100%;
+    top: 30%;
+    left: 50%;
+    margin-left: -150px;
+    height: 300px;
+    width: 300px;
     background-color: white;
     color: black;
+    z-index: 100;
 }
 .overlay.show {
     display: block;
+}
+
+@media screen and (max-width: 720px){
+    .slider {
+        min-height: 240px;
+    }
 }

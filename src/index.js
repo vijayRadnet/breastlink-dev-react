@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 import "./app.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Main from "./components/main";
+import Main from "./components/main"; 
+
 import u from "./util/utility.js";
 
 class App extends React.Component {

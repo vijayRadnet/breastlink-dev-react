@@ -1,7 +1,7 @@
 import React from "react";
 import Jumbotron from "./jumbotron";
 import "./main.css";
-import sydneyRae from "./images/sydney-rae.jpg";
+import Navigation from "../components/navigation.js";
 import oneFocus from "./images/one-focus.jpg";
 import research from "./images/research.jpg";
 import patientEducation from "./images/patient-education.jpg";
@@ -13,16 +13,16 @@ class Main extends React.Component {
         this.state = {
             jumbos:[
                 {
-                    title: 'Patient Care',
+                    title: `One Center ${String.fromCharCode(8226)} One Focus ${String.fromCharCode(8226)} One Team`,
                     classes: ['active'],
                     image: research
                 }, 
                 {
-                    title: 'Patient Education',
+                    title: 'Meet Our Doctors',
                     image: oneFocus
                 },
                 {
-                    title: 'Patient Education 2',
+                    title: 'Cancer 101',
                     image: patientEducation
                 }
             ]
@@ -59,7 +59,7 @@ class Main extends React.Component {
                 this.cache[this.jumboLength-1].classList.remove('active')
                 this.cache[this.counter].classList.add('active') 
             }
-        }, 4000);
+        }, 2000);
     }
     stopCarousel(){
         clearInterval(this.timer);
@@ -128,6 +128,7 @@ class Main extends React.Component {
     
         return (
             <main className="clearfix">
+                <Navigation />
                 <div className="slider">{jumbos}</div>
                 <p>Some other stuff</p>
             </main>

@@ -1,4 +1,5 @@
 footer {
-    background-color: black;
+    background-color: #252525;
     color: white;
+    min-height: 500px;
 }

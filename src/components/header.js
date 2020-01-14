@@ -18,12 +18,12 @@ class Header extends React.Component {
     render(){
         return (
             <header>
-                <img className="logo" src={logo} />
-                <Navigation />
-                <div className="clearfix" style={{textAlign: "right"}}>
-                    <button onClick={this.handleClick}>Make an appointment</button>
+                <div style={{float:'left'}}><img className="logo" src={logo} /></div>
+                <div style={{float:'right', textAlign: "right", paddingTop: '20px'}}>
+                    <button className="btn btn-info" onClick={this.handleClick}>Make an appointment</button>
                     <p>Los Angeles, CA 73&#8457;</p>
                 </div>
+                <div className="clearfix"></div>
             </header>
         )
     }
