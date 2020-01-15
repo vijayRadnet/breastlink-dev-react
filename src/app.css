@@ -6,6 +6,10 @@
     margin-right: auto;
     font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
 }
+.app.dark {
+    background-color: #252525;
+    color: white;
+}
 
 .clearfix {
     content:"";
@@ -41,6 +45,22 @@
 }
 .overlay.show {
     display: block;
+}
+
+
+button.btn-wow {
+    background: linear-gradient(to right, #f953c6, #b91d73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.app.dark button.btn {
+    background: #1f4037;
+    color: white;
+}
+
+.app.dark button.btn-wow {
+    background: #1f4037;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 @media screen and (max-width: 720px){

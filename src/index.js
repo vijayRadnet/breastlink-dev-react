@@ -11,21 +11,31 @@ import u from "./util/utility.js";
 class App extends React.Component {
     constructor(props){
         super(props)
-
-        this.handleClick = this.handleClick.bind(this)
+        this.state = {
+            darkModeOn: false,
+            time: new Date()
+        }
+        this.darkMode = this.darkMode.bind(this);
+    }
+    componentDidMount(){
+        if(this.state.time.getHours() > 17){
+            this.darkMode()
+        }
     }
 
-    handleClick(){
-
-       // u(".overlay").toggle()
+    darkMode(){
+        this.setState({'darkModeOn': !this.state.darkModeOn});
     }
 
     render(){
         return (
-            <div className="app">
+            <div className={`app ${this.state.darkModeOn ? 'dark':''}`}>
                 <Header/>
+               
                 <Main />
+                <button className="btn" onClick={this.darkMode}>Dark Mode</button>
                 <Footer/>
+                
                 <div className="overlay">Hello World</div>
             </div>
         )
