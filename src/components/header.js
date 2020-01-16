@@ -24,7 +24,7 @@ class Header extends React.Component {
             <header>
                 <div><img className="logo" src={logo} /><sup>DEV</sup></div>
                 <div className="button-menu">
-                    <button className="btn" onClick={this.darkMode}>Dark Mode</button>
+                    <button className="btn btn-info dark-mode" onClick={this.darkMode}>{this.props.darkModeOn ? 'Light': 'Dark'} Mode</button>
                     <button className="btn btn-info btn-wow" onClick={this.handleClick}>Make an appointment</button>
                     
                 </div>

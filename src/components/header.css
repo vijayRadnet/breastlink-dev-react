@@ -14,6 +14,15 @@ header div:first-child {
     background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.btn.btn-info.dark-mode {
+    background: transparent;
+    outline:none;
+    border:0;
+}
+.btn.btn-info.dark-mode:focus {
+    box-shadow: none;
+}
+
 header a {
     position: relative;
     color: white;

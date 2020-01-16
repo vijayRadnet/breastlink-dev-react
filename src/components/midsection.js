@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import "./midsection.css";
 import Story from "./story.js"
 import gsap from "gsap";
@@ -24,15 +24,38 @@ export default class Midsection extends React.Component {
                 'Radiation Therapy'
             ]
         }
-//        this.animate = this.animate.bind(this);
+        this.runAnimation = this.runAnimation.bind(this);
     }
+    runAnimation(id, cb1, cb2){
+      $(window).scroll(function(){
+          let docViewTop = $(window).scrollTop();
+          let docViewBottom = docViewTop + $(window).height();
+
+          let elemTop = $(id).offset().top;
+          let elemBotttom = elemTop + $(id).height();
+
+          let inView = ((docViewBottom > elemTop) && (docViewTop < elemBotttom)) ? true : false;
+        
+          inView ? cb1() : cb2();
+      })  
+    }
+
+
     componentDidMount(){
-        // $(window).scroll(()=>{
-        //     let mid = $(".slider").height();
-        //     if($(window).scrollTop() >= mid){
-        //         console.log('scrolled')
-        //     }
-        // })
+        let id = $("#midsection");
+        this.runAnimation(id, () =>{
+            console.log('animation 1')
+            gsap.to(id, 2, {
+                top: '0px',
+                opacity: 1
+            });
+        }, () =>{
+            console.log('animation 2')
+            gsap.to(id, 2, {
+                top: '200px',
+                opacity: 0
+            });
+        })
     }
 
   

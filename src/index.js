@@ -32,7 +32,7 @@ class App extends React.Component {
     render(){
         return (
             <div className={`app ${this.state.darkModeOn ? 'dark':''}`}>
-                <Header darkModeClick={this.darkMode}/>
+                <Header darkModeClick={this.darkMode} darkModeOn={this.state.darkModeOn}/>
                 <Main />
                 <Social />
                 <Footer/>

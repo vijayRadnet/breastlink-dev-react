@@ -13,7 +13,7 @@ export default function Story(props){
                 <div className="col-md">
                     <h2>{title}</h2>
                     <div className="story-blurb">
-                        <p>{content}</p>
+                        {content}
                     </div>
                 </div>
             </div>

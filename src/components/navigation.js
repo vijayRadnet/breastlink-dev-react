@@ -1,5 +1,7 @@
 import React from "react";
 import "./navigation.css";
+import moment from "moment";
+import {openWeatherKey} from "../config/config.js";
 
 export default class Navigation extends React.Component {
     constructor(props){
@@ -12,8 +14,62 @@ export default class Navigation extends React.Component {
                 'Doctors',
                 'Services',
                 'Blog',
-            ]
+            ],
+            weather: {},
+            time: moment().format('h:mm:ss a')
         }
+        this.showTime = this.showTime.bind(this);
+        this.getLocation = this.getLocation.bind(this);
+        this.showWeather = this.showWeather.bind(this);
+        this.showTime()
+        
+    }
+    showTime(){
+        setInterval(()=>{
+            this.setState({'time' : moment().format('h:mm:ss a')})
+        }, 1000)
+    }
+
+    getLocation(options){
+        return new Promise((res,rej)=>{
+            navigator.geolocation.getCurrentPosition(res, rej, options);
+        });
+    }
+
+    componentDidMount(){
+        this.showWeather()
+        console.log(this.state.weather)
+    }
+
+    showWeather(){
+        let testUrlBase = `https://api.openweathermap.org/data/2.5/weather?`
+        let urlAppend = `&appid=${openWeatherKey}&units=imperial`
+        
+        let getCoordinatesSuccess = position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            let q = `lat=${lat}&lon=${lon}`;
+            let testUrl = testUrlBase+q+urlAppend;
+            fetch(testUrl).then((data)=>{
+                return data.json()
+            }).then(renderData)
+        }
+
+        let renderData = data => {
+            console.log(data)
+            let city = data.name;
+            let temp = data.main.temp;
+            this.setState({'weather': {city: city, temp: temp}})
+        }
+
+        try {
+            this.getLocation()
+            .then(getCoordinatesSuccess)
+            .catch(err => { console.log(err)});
+        }catch(e) {
+            console.log(e);
+        }
+               
     }
 
     render(){
@@ -45,7 +101,7 @@ export default class Navigation extends React.Component {
                                 </div>
                             </div>
                             <div className="weather-info text-right">
-                               <p>Los Angeles, CA 73{String.fromCharCode(8457)}</p>
+                               <p>{this.state.weather.city ? `${this.state.weather.city} ${parseInt(this.state.weather.temp)}${String.fromCharCode(8457)} ` : 'Getting Your City Data...'} | {this.state.time}</p>
                             </div>
                         </div>
                     </div>
