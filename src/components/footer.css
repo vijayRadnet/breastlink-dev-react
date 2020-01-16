@@ -42,5 +42,10 @@ footer .disclaimer {
 @media screen and (max-width: 720px){
     footer {
         padding-bottom: 80px;
+        text-align: center;
     }
+    footer .disclaimer {
+        max-width: 100%;
+    }
+
 }

@@ -4,6 +4,10 @@ header {
     background: linear-gradient(180deg,#2a5bad 0,#64aed6);
     color: white;
 }
+header div:first-child {
+    float: left;
+}
+
 .app.dark header {
     background: #000000;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
@@ -28,8 +32,13 @@ header .button-menu {
 @media screen and (max-width: 720px){
     header {
         padding-bottom: 20px;
+        text-align: center;
+    }
+    header div:first-child {
+        float: none;
     }
     header .button-menu {
+        clear: left;
         float: none; 
         text-align: center;
     }
