@@ -63,4 +63,18 @@
         top: 0px;
         font-size: 1.5em;
     }
+    .jumbotron .carousel-ui {
+        top: 80%;
+    }
+    .jumbotron .carousel-ui.left {
+        left: 5px;
+    }
+    
+    .jumbotron .carousel-ui.right {
+        right: 5px;
+    }
+    .app.dark .jumbotron button.btn {
+        background: #1f40373e;
+        color: white;
+    }
 }

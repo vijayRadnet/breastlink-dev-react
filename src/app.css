@@ -44,6 +44,7 @@ img.logo {
     display: block !important;
 }
 
+
 .overlay {
     display: none;
     position: absolute;
@@ -80,4 +81,8 @@ background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, F
     .slider {
         min-height: 240px;
     }
+    iframe,img {
+        width: 100%;
+    }
+
 }

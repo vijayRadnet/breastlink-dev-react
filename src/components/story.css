@@ -30,3 +30,18 @@
 .featured-story .row .col-md:first-child {
     text-align: center;
 }
+
+@media screen and (max-width: 720px){
+    .featured-story {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .featured-story .row .col-md:first-child {
+        margin-bottom: 40px;
+    }
+
+    .featured-story .story-blurb {
+        width: 100%;
+    }
+}

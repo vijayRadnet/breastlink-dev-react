@@ -23,7 +23,7 @@ class Header extends React.Component {
         return (
             <header>
                 <div style={{float:'left'}}><img className="logo" src={logo} /><sup>DEV</sup></div>
-                <div style={{float:'right', textAlign: "right", paddingTop: '20px'}}>
+                <div className="button-menu">
                     <button className="btn" onClick={this.darkMode}>Dark Mode</button>
                     <button className="btn btn-info btn-wow" onClick={this.handleClick}>Make an appointment</button>
                     

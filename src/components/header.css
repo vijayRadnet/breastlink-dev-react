@@ -18,3 +18,22 @@ header a {
 header p {
     padding-bottom: 10px;
 }
+
+header .button-menu {
+    float: right; 
+    text-align: right;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 720px){
+    header {
+        padding-bottom: 20px;
+    }
+    header .button-menu {
+        float: none; 
+        text-align: center;
+    }
+    header .button-menu button:first-child {
+        margin-right: 10px;
+    }
+}
