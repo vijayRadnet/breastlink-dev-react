@@ -5,6 +5,7 @@ import "./app.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Main from "./components/main"; 
+import Social from "./components/social";
 
 import u from "./util/utility.js";
 
@@ -18,7 +19,8 @@ class App extends React.Component {
         this.darkMode = this.darkMode.bind(this);
     }
     componentDidMount(){
-        if(this.state.time.getHours() > 17){
+        let time = this.state.time;
+        if(time.getHours() > 16){
             this.darkMode()
         }
     }
@@ -30,12 +32,10 @@ class App extends React.Component {
     render(){
         return (
             <div className={`app ${this.state.darkModeOn ? 'dark':''}`}>
-                <Header/>
-               
+                <Header darkModeClick={this.darkMode}/>
                 <Main />
-                <button className="btn" onClick={this.darkMode}>Dark Mode</button>
+                <Social />
                 <Footer/>
-                
                 <div className="overlay">Hello World</div>
             </div>
         )

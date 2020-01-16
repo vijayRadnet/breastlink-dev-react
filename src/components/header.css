@@ -10,18 +10,11 @@ header {
     background: linear-gradient(to bottom, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-header img.logo {
-    max-width: 240px;
-    position: relative;
-    top: 30px;
-    left: 20px;
-}
-
 header a {
+    position: relative;
     color: white;
 }
 
 header p {
-    padding-top:10px;
     padding-bottom: 10px;
 }

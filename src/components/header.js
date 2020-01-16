@@ -11,6 +11,10 @@ class Header extends React.Component {
             overlayOff: true
         }
         this.handleClick = this.handleClick.bind(this);
+        this.darkMode = this.darkMode.bind(this);
+    }
+    darkMode(){
+        this.props.darkModeClick()
     }
     handleClick(){
         u(".overlay").toggle()
@@ -18,10 +22,11 @@ class Header extends React.Component {
     render(){
         return (
             <header>
-                <div style={{float:'left'}}><img className="logo" src={logo} /></div>
+                <div style={{float:'left'}}><img className="logo" src={logo} /><sup>DEV</sup></div>
                 <div style={{float:'right', textAlign: "right", paddingTop: '20px'}}>
+                    <button className="btn" onClick={this.darkMode}>Dark Mode</button>
                     <button className="btn btn-info btn-wow" onClick={this.handleClick}>Make an appointment</button>
-                    <p>Los Angeles, CA 73{String.fromCharCode(8457)}</p>
+                    
                 </div>
                 <div className="clearfix"></div>
             </header>

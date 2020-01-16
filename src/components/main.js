@@ -2,6 +2,7 @@ import React from "react";
 import Jumbotron from "./jumbotron";
 import "./main.css";
 import Navigation from "../components/navigation.js";
+import Midsection from "../components/midsection.js";
 import oneFocus from "./images/one-focus.jpg";
 import research from "./images/research.jpg";
 import patientEducation from "./images/patient-education.jpg";
@@ -59,7 +60,7 @@ class Main extends React.Component {
                 this.cache[this.jumboLength-1].classList.remove('active')
                 this.cache[this.counter].classList.add('active') 
             }
-        }, 2000);
+        }, 3000);
     }
     stopCarousel(){
         clearInterval(this.timer);
@@ -130,7 +131,7 @@ class Main extends React.Component {
             <main className="clearfix">
                 <Navigation />
                 <div className="slider">{jumbos}</div>
-                <p>Some other stuff</p>
+                <Midsection />
             </main>
         )
     }

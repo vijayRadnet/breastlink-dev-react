@@ -1,0 +1,32 @@
+.featured-story {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #252525;
+    box-sizing: border-box;
+    color: white;
+    font-size: 24px;
+    font-family: "Indie Flower";
+}
+
+.app.dark .featured-story {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.featured-story .story-blurb {
+    font-family: "Play";
+    padding-top:40px;
+    font-size: 20px;
+    width: 70%;
+    line-height: 2em;
+}
+
+.featured-story .row .col-md:first-child {
+    text-align: center;
+}

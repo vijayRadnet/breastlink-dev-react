@@ -21,8 +21,9 @@
     top: 100px;
     width: 100%;
     padding-top: 100px;
-    text-shadow: 2px 2px 4px black;
-    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(36, 36, 36, 0.351);
+    font-size: 3em;
+    font-family: "Mukta Malar";
 }
 
 .jumbotron .jumbogradient {
@@ -30,8 +31,11 @@
     height: 100%;
     width: 100%;
     z-index: 9;
-    background: linear-gradient(180deg,#2a5bad 0,#64aed6);
-    opacity: 0.2;
+    background: #654ea3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    opacity: 0.4;
 }
 
 .jumbotron .carousel-ui {
