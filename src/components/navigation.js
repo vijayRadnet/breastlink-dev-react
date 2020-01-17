@@ -42,15 +42,28 @@ export default class Navigation extends React.Component {
     }
 
     showWeather(){
-        let testUrlBase = `https://api.openweathermap.org/data/2.5/weather?`
-        let urlAppend = `&appid=${openWeatherKey}&units=imperial`
-        
+        let searchUrl = `https://api.openweathermap.org/data/2.5/weather`
+
+        const params = {
+            appid: openWeatherKey,
+            units: `imperial`
+        }
+
+        function formatQueryParams(params){
+            const queryItems = Object.keys(params).map(key => `${key}=${params[key]}`)
+            return queryItems.join('&');
+        }
+
+        const queryString = formatQueryParams(params)
+                
         let getCoordinatesSuccess = position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
+
             let q = `lat=${lat}&lon=${lon}`;
-            let testUrl = testUrlBase+q+urlAppend;
-            fetch(testUrl).then((data)=>{
+            let url = searchUrl+"?"+q+"&"+queryString;
+
+            fetch(url).then((data)=>{
                 return data.json()
             }).then(renderData)
         }
@@ -65,7 +78,10 @@ export default class Navigation extends React.Component {
         try {
             this.getLocation()
             .then(getCoordinatesSuccess)
-            .catch(err => { console.log(err)});
+            .catch(err => { 
+                //can then decided to use default data (or cached data)
+                console.log(err)
+            });
         }catch(e) {
             console.log(e);
         }
